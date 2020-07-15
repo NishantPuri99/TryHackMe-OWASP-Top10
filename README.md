@@ -76,7 +76,7 @@ terminal led me to realise that there are no such non-special users.</p>
 #### Approach for each Question: (Answers are at the end)
 **Question 1:** <code> 	What is the flag that you found in darren's account ? </code><br>
 **My Solution:**
-<p>We are given that there is an account named <code>darren</code> which contains a <i>flag</i>. To access this account, if we try something like <code>darren </code> (Notice the space at the end), or even <code>   darren</code> (3 spaces in the front), for <b>REGISTERING</b> a new account and then we try Logging in with this account. Then we are able to access the account details, in this case, the <i>flag<i> from the actual <i>darren</i> account.</p>
+<p>We are given that there is an account named <code>darren</code> which contains a <i>flag</i>. To access this account, if we try something like <code>darren </code> (Notice the space at the end), or even <code>   darren</code> (3 spaces in the front), for <b>REGISTERING</b> a new account and then we try Logging in with this account. Then we are able to access the account details, in this case, the <i>flag</i> from the actual <i>darren</i> account.</p>
 
 **Question 2:** <code> Now try to do the same trick and see if you can login as arthur. </code><br>
 **Not Solution Based, only apply the above method again.**
