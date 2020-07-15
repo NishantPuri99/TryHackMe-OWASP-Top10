@@ -61,3 +61,33 @@ Yet actually, (again had to use this [article](https://medium.com/@tirthesh.pawa
 **Q6:** <code>Dr Pepper</code>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 2:
+
+**Vulnerability:** <code> Broken Authentication </code>
+
+**Target:** <code>http://MACHINE_IP:8888</code>
+***Simple Description: A SignIn Button and a Register Button is given on the top, 2 fields are given for Sign-Up and a new set of 3 fields is opened up on Registration***
+
+**Questions:**
+
+![Answers](Answers_Day_2_(Blurred).png)
+
+#### Approach for each Question: (Answers are at the end)
+**Question 1:** <code> 	What is the flag that you found in darren's account ? </code><br>
+**My Solution:**
+<p>We are given that there is an account named <code>darren</code> which contains a *flag*. To access this account, if we try something like <code>darren </code> (Notice the space at the end), or even <code>   darren</code> (3 spaces in the front), for *REGISTERING* a new account and then we try Logging in with this account. Then we are able to access the account details, in this case, the *flag* from the actual *darren* account.</p>
+
+**Question 2:** <code> Now try to do the same trick and see if you can login as arthur. </code><br>
+**Not Solution Based, only apply the above method again.**
+
+**Question 3:** <code> What is the flag that you found in arthur's account ? </code><br>
+**My Solution:**
+<p>By trying the same method as in Darren's account, we are able to reach the flag in this one too! <br>What's important though, is going to the next level. Thus, I tried out various different types of alternative inputs like <code>arthur.</code> <code>art hur</code> <code>_arthur</code> <code>"arthur"</code>. <br>Well, none of those actually work and thus I realised that only *blank spaces* can be used to check Broken Authentication successfully.</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>fe86079416a21a3c99937fea8874b667</code>
+**Q2:** <code>No Answer Required</code>
+**Q3:** <code>d9ac0f7db4fda460ac3edeb75d75e16e</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
