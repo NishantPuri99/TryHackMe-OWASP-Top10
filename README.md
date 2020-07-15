@@ -20,7 +20,7 @@ Learn one of the OWASP vulnerabilities every day for 10 days in a row. A new tas
 
 **Questions:**
 
-![Answers](Answers_Day_1_(Blurred))
+![Answers](Answers_Day_1_(Blurred).png)
 
 #### Approach for each Question: (Answers are at the end)
 **Question 1:** <code> What strange textfile is in the website root directory ? </code><br>
