@@ -91,3 +91,57 @@ terminal led me to realise that there are no such non-special users.</p>
 **Q3:** <code>d9ac0f7db4fda460ac3edeb75d75e16e</code>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 3:
+
+**Vulnerability:** <code> Sensitive Data Exposure </code>
+
+**Target:** <code>http://MACHINE_IP</code>
+***Simple Description: A wesbites is given. We need to access the SQLite database and find crucial leaked information***
+
+**Questions:**
+
+![Answers](Answers_Day_3_(Blurred).png)
+
+#### Approach for each Question: (Answers are at the end)
+**Question 1:** <code> 	What is the name of the mentioned directory ? </code><br>
+**My Solution:**
+<p>I used the hint for this. But after that it became pretty clear. An important point to be noted is that <i>View Page Source</i> and more over looking it at very closely is a really necessary skill that all budding Ethical Hackers and Security Researchers need to understand!</p>
+
+**Question 2:** <code> Navigate to the directory you found in question one. What file stands out as being likely to contain sensitive data ? </code><br>
+**My Solution:**
+<p>This was pretty simple. When sensitive data is directly under the root directory, then you can directly see the "database file" that we need to access.</p>
+
+**Question 3:** <code> Use the supporting material to access the sensitive data. What is the password hash of the admin user ? </code><br>
+**My Solution:**
+<p>This requires understanding the support material about SQLite Databases. The basics are as follows: <br>
+<ol>
+  <li>Run <code>file <filename></code> in the <b>terminal</b>. This gives you the "File Type" and "Version" of the same file-type.</li>
+  <li>Since it is an SQLite DB, we use <code>sqlite3 <filename></code> to access the tables under it.</li>
+  <li>A really important command to be used is <code>.help</code>. Infact, we should use this anywhere and everywhere, if we're unfamiliar to the specific command.</li>
+</ol>
+After this, we just need to run some of the commands mentioned in the Support Material related to SQL Queries.
+</p>
+
+**Question 4:** <code> Crack the hash. What is the admin's plaintext password ? </code><br>
+**My Solution:**
+<p><a href="https://crackstation.net/">Crack-Station</a> is the "go-to" place for Cracking Hashes. What's more interesting is that you can download the 15GB wordlist for your own use as well!</p>
+
+**Question 5:** <code> Login as the admin. What is the flag ? </code><br>
+**My Solution:**
+<p>Once we have the admin access from the SQLite Database, we just need to login as admin and the flag appears right there.</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>/assets</code>
+**Q2:** <code>webapp.db</code>
+**Q3:** <code>6eea9b7ef19179a06954edd0f6c05ceb</code>
+**Q4:** <code>qwertyuiop</code>
+**Q5:** <code>THM{Yzc2YjdkMjE5N2VjMzNhOTE3NjdiMjdl}</code>
+<br>
+**Bonus:**<br>
+This was really fun to try out. Here goes the description for the same:<br>
+<i>To spice things up a bit, in addition to the usual daily prize draw this box also harbours a special prize: a voucher for a one month subscription to TryHackMe. There may or may not be another hint hidden on the box, should you need it, but for the time being here's a starting point: boxes are boring, escape 'em at every opportunity.</i>
+<br>
+<p>I tried various things here, <code>ssh</code>, <code>nmap</code>, <code>metasploit</code>, but unfortunately, I failed to get through or even find the answer. I wasn't disheartened though. This bonus question has been an amazing learning experience 😊</p>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
