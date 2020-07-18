@@ -145,3 +145,118 @@ This was really fun to try out. Here goes the description for the same:<br>
 <p>I tried various things here, <code>ssh</code>, <code>nmap</code>, <code>metasploit</code>, but unfortunately, I failed to get through or even find the answer. I wasn't disheartened though. This bonus question has been an amazing learning experience 😊</p>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 4:
+
+**Vulnerability:** <code> XML External Entity </code>
+
+**Target:** <code>http://MACHINE_IP</code>
+***Simple Description: An XXE Payload TextField is given, Certain tasks are to be done***
+
+**Questions:**
+
+*P1: eXtensible Markup Language Basics*
+
+<p>Here we had to learn the basics of XML, its syntax and its use.</p>
+
+![Answers](Answers_Day_4(i).png)
+
+#### Questions: 
+**Question 1:** <code> Full form of XML </code><br>
+**Question 2:** <code> Is it compulsory to have XML prolog in XML documents ? </code><br>
+**Question 3:** <code> Can we validate XML documents against a schema ? </code><br>
+**Question 4:** <code> Full form of XML </code><br>
+
+#### Since, these questions are quite basic, the answer is in the attached image only
+
+*P2: XML DTD Basic*
+
+<p>Now we go into the basics of DTD. <br> DTD stands for Document Type Definition. A DTD defines the structure and the legal elements and attributes of an XML document.</p>
+
+![Answers](Answers_Day_4(ii).png)
+
+#### Questions: 
+**Question 1:** <code> How do you define a new ELEMENT ? </code><br>
+**Question 2:** <code> How do you define a ROOT element? </code><br>
+**Question 3:** <code> How do you define a new ENTITY? </code><br>
+
+#### Since, these questions are also quite basic, the answer is in the attached image only
+
+*P3: XXE Payload basics*
+
+<p>We get a really detailed description of how do we really use XXE payloads. It is possible to print out data on the webpage easily by using<br>
+
+![Answers](Payload1.png)
+  
+What is more important to understand it the fact, that by using some system commands, we can also print <code>/etc/passwd</code> contents on it!
+
+![Answers](Payload2.png)
+
+*P4: XXE Exploitation Basics*
+
+<p>Finally!!!<br>
+Now we have to actually use these exploist learnt to do the following:</p>
+
+![Answers](Answers_Day_4(iii)_(Blurred).png)
+
+#### Questions: 
+**Question 1:** <code> Try to display your own name using any payload. </code><br>
+**My Solution:**
+<p>As far as this goes, based on the first exploit in <i>P3</i>, I could have just replaced "feast" with my name. But I realised, that if you just put 2 opening and closing tags, like <code>&lt;name&gt;Nishant&lt;name/&gt;</code>, then also, the exploit works well</p>
+
+**Question 2:** <code> See if you can read the /etc/passwd </code><br>
+**My Solution:**
+<p>This is the second exploit mentioned in <i>P4</i>.</p>
+
+**Question 3:** <code> What is the name of the user in /etc/passwd ? </code><br>
+**My Solution:**
+<p>Well, navigating to the end of the result that we recieved in the previous question, we find that the user name is clearly visible (It stands apart from the root/service/daemon users)</p>
+
+**Question 4:** <code> Where is falcon's SSH key located ? </code><br>
+**My Solution:**
+<p>I needed to search this up online as to where the SSH Keys are actually located.<br>
+Honestly speaking though, I didn't have much confidence to try it out that time, even though I had found the answer. I'm thankful to this great <a href="https://medium.com/@musyokaian/owasp-top-10-tryhackme-b7d02f29254b">write-up</a>, that helped me out. I'd like to take this moment to say that never lose faith in your hardwork or yourself. <br><b>You have great potential! Always remember that and Never Give Up!</b></p>
+
+**Question 5:** <code> What are the first 18 characters for falcon's private key ? </code><br>
+**My Solution:**
+<p>Once, we displayed the data from the SSH Key file (using the method like the second exploit), we were able to easily view the SSH Key!</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>No Answer Required.</code>
+**Q2:** <code>No Answer Required.</code>
+**Q3:** <code>falcon</code>
+**Q4:** <code>/home/falcon/.ssh/id_rsa</code>
+**Q5:** <code>MIIEogIBAAKCAQEA7</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 5:
+
+**Vulnerability:** <code> Broken Access Control </code>
+
+**Target:** <code>http://MACHINE_IP</code>
+***Simple Description: A target machine is given, IDOR and Broken Access Control are to be learned and exploited!***
+
+**Questions:**
+
+![Answers](Answers_Day_5_(Blurred).png)
+
+#### Approach for each Question: (Answers are at the end)
+**Question 1:** <code> Read and understand how IDOR works. </code><br>
+**My Understanding of IDOR:**
+<p>IDOR or Insecure Direct Object Reference, is an important vulnerability which comes under Broken Access Control.<br>Being able to access data which is not meant to be accessed by normal users, is an exaple of Broken Access Control. In simple words, say that you are able to login to your bank account and the following is your link in the address bar, <code>https://example.com/bank?account_number=1234</code>. You might not notice this normally, but if you consider an attacker, then all they need to do is change the account number in the above URL and lo and behold!, all your data belongs to the attacker!</p>
+
+**Question 2:** <code> Deploy the machine and go to http://MACHINE_IP - Login with the username being noot and the password test1234. </code><br>
+**No Answer Required**
+
+**Question 3:** <code> Look at other users notes. What is the flag ? </code><br>
+**My Solution:**
+<p>This is IDOR in action, the fact that we are able to change the <code>note</code> number paramter in the URL (<code>http://MACHINE_IP/index.php?note=1</code>), and then navigate to a specific note, shows how we are able to read and access someone else's data!</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>No answer needed</code>
+**Q2:** <code>No answer needed</code>
+**Q3:** <code>flag{fivefourthree}</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
