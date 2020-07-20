@@ -260,3 +260,29 @@ Honestly speaking though, I didn't have much confidence to try it out that time,
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+### Day 6:
+
+**Vulnerability:** <code> Security Misconfiguration </code>
+
+**Target:** <code>http://MACHINE_IP</code><br>
+***Simple Description: A target machine is given and the question is pretty simple. Hack the webapp and find the flag***😅
+
+**Questions:**
+
+![Answers](Answers_Day_6_(Blurred).png)
+
+#### Approach for each Question: (Answers are at the end)
+**Question 1:** <code> Deploy the VM. </code><br>
+**No Answer Required**
+<p><b>An important point!</b><br>Pensive Notes is the target web-app and we wish to hack into it. As far as Security Misconfigurations go, not changing the <b>default</b> passwords is what leads to major problems!</p>
+
+**Question 2:** <code> Hack into the webapp, and find the flag ! </code><br>
+**My Solution:**
+<p>Turns out, that problems like these require a bit more effort. More than effort, they require experience! As a beginner, when I'm told to <i>look into the "source code"</i>, I would naturally go to <code>Inspect Element</code> or <code>View Page Source</code>. With some help from the TryHackMe Discord Server, I realised and well, now have understood, that for source code and documentation, my go-to place is <a href="https://github.com/explore">GitHub</a>.<br> Moreover, sometimes using <b>GitHub Search</b> instead of <b>Google Search</b> can help you reach the solution.</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>No answer needed</code>
+**Q2:** <code>thm{4b9513968fd564a87b28aa1f9d672e17}</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
