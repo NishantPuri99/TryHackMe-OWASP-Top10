@@ -384,7 +384,7 @@ Honestly speaking though, I didn't have much confidence to try it out that time,
 ![Answers](Answers_Day_8(iv).png)
 
 #### Questions: 
-**Question 1:** <code> If a cookie had the path of webapp.com/login , what would the URL that the user has to visit be ? </i><br>
+**Question 1:** <code> If a cookie had the path of webapp.com/login, what would the URL that the user has to visit be ?</code><br>
 **Question 2:** <code> What is the acronym for the web technology that Secure cookies work over ? </code><br>
 
 #### Since, these questions are quite basic, the answer is in the attached image only
