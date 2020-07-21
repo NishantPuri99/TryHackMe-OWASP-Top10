@@ -195,7 +195,7 @@ What is more important to understand it the fact, that by using some system comm
 *P4: XXE Exploitation Basics*
 
 <p>Finally!!!<br>
-Now we have to actually use these exploist learnt to do the following:</p>
+Now we have to actually use these exploits learnt to do the following:</p>
 
 ![Answers](Answers_Day_4(iii)_(Blurred).png)
 
@@ -331,5 +331,106 @@ Honestly speaking though, I didn't have much confidence to try it out that time,
 **Q4:** <code>HTML_T4gs</code>
 **Q5:** <code>W3LL_D0N3_LVL2</code>
 **Q6:** <code>websites_can_be_easily_defaced_with_xss</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 8:
+
+**Vulnerability:** <code> Insecure Deserialization </code>
+
+**Target:** <code>http://MACHINE_IP</code><br>
+***Simple Description: Learn about cookies and Remote Code Execution to gather the flags!***
+
+**Questions:**
+
+*P1: Insecure Deserialization Basics*
+
+<p>An Introduction to Insecure Deserialization and its impact was given. According to Acunetix(2017), <i>Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the logic of an application</i> (Taken from the written material on the TryHackMe Room).</p>
+
+![Answers](Answers_Day_8(i).png)
+
+#### Questions: 
+**Question 1:** <code> Who developed the Tomcat application ? </code><i><b>Hint:</b> Give the name of the company, not the developer.</i><br>
+**Question 2:** <code> What type of attack that crashes services can be performed with insecure deserialization ? </code><br>
+
+#### Since, these questions are quite basic, the answer is in the attached image only
+
+*P2: Insecure Deserialization-Objects*
+
+<p>This was pretty simple. Here we discuss a well known concept of <b>Object Oriented Programming</b> or <b>OOP</b> and discuss about <i>states</i> and <i>behaviours</i>.</p>
+
+![Answers](Answers_Day_8(ii).png)
+
+#### Questions: 
+**Question 1:** <code> Select the correct term of the following statement: if a dog was sleeping, would this be: A) A State B) A Behaviour </code><br>
+
+#### Since, this question is pretty intuitive, the answer is in the attached image only
+
+*P3: Insecure Deserialization-Deserialization*
+
+<p>We get a really detailed description of <b>Serialization</b> and <b>Deserialization</b>. Using an analogy of a giving directions to foreigner by giving them a map, TryHackMe paints a very clear picture of how Data is conversion to bytes and back!<br>
+
+![Answers](Answers_Day_8(iii).png)
+
+#### Questions: 
+**Question 1:** <code> What is the name of the base-2 formatting that data is sent across a network as? </code><br>
+
+#### This question again though, is pretty intuitive, and thus the answer is in the attached image only
+
+*P4: Insecure Deserialization-Cookies*
+
+<p>As far as the concept of cookies goes, I guess this is one of the most simple yet the most appropriate description of it that I have come across. We get to understand what cookies are, what attributes do they have and how they are created in Flask.</p>
+
+![Answers](Answers_Day_8(iv).png)
+
+#### Questions: 
+**Question 1:** <code> If a cookie had the path of webapp.com/login , what would the URL that the user has to visit be ? </i><br>
+**Question 2:** <code> What is the acronym for the web technology that Secure cookies work over ? </code><br>
+
+#### Since, these questions are quite basic, the answer is in the attached image only
+
+*P5: Insecure Deserialization-Cookies Practical*
+
+<p>This one is fun for 2 reasons. <br>(1) We get to find Flags!😁<br>(2) We find those flags by manipulating Cookies! </p>
+
+![Answers](Answers_Day_8(v)_(Blurred).png)
+
+#### Questions: 
+**Question 1:** <code> 1st flag (cookie value) </code><br>
+**My Solution:**
+<p>Okay, so we're given that the first flag is somehwere in that cookie which has both <i>plainText</i> and <i>base64 encoded text</i>. That points directly towards the Cookie "Value". Here the Session ID is Base64 Encoded and decoding it using Burp-Suite's Decoder does the work.</p>
+
+**Question 2:** <code> 2nd flag (admin dashboard) </code><br>
+**My Solution:**
+<p>This is pretty simple, but can spell chaos if it happens in an actual application! So, there is a userType cookie field and contains whether the user is a normal one or an admin. Changing this value by logging in as a normal user, can help you reach the admin dashboard and get the flag.</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>THM{good_old_base64_huh}</code>
+**Q2:** <code>THM{heres_the_admin_flag}</code>
+
+*P6: Insecure Deserialization-Remote Code Execution*
+
+<p>And finally! Something that I personally am fond of doing (but never managed to do successfully till now😅). We generate a reverse shell to get data from a flag.txt file</p>
+
+![Answers](Answers_Day_8(vi)_(Blurred).png)
+
+#### Questions: 
+**Question 1:** <code> flag.txt </code><i>(That's it. That's the question.)</i>😅<br>
+**My Solution:**
+<p>Well, this one is pretty tricky. I'd highly recommend anyone who wishes to know about Remote Code Execution, to go over the actual write up in the TryHackMe room. This basically involves the following 
+<ol>
+  <li> Creating a new cookie field,
+  <li> Opening a form,
+  <li> Making a python script to create a Base64 Encoded Cookie,
+  <li> Opening a netcat listener,
+  <li> Changing the cookie value in the new field,
+  <li> And finally, getting a reverse shell to the Website's Server.
+ </ol>
+I'd like to say this again, that this has been very clearly explained in the actual write up of the room.
+After getting a reverse shell, a simple <code>cd ..</code> and an <code>ls</code> would do.
+</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answer. Thanks.)
+**Q1:** <code>4a69a7ff9fd68</code>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
