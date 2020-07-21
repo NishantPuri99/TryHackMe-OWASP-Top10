@@ -15,7 +15,7 @@ Learn one of the OWASP vulnerabilities every day for 10 days in a row. A new tas
 
 **Vulnerability:** <code> Injection </code>
 
-**Target:** <code>http://MACHINE_IP/evilshell.php.</code>
+**Target:** <code>http://MACHINE_IP/evilshell.php.</code><br>
 ***Simple Description: A Search bar is given, we also know that the PHP Code for the same allows command injection***
 
 **Questions:**
@@ -66,7 +66,7 @@ terminal led me to realise that there are no such non-special users.</p>
 
 **Vulnerability:** <code> Broken Authentication </code>
 
-**Target:** <code>http://MACHINE_IP:8888</code>
+**Target:** <code>http://MACHINE_IP:8888</code><br>
 ***Simple Description: A SignIn Button and a Register Button is given on the top, 2 fields are given for Sign-Up and a new set of 3 fields is opened up on Registration***
 
 **Questions:**
@@ -96,7 +96,7 @@ terminal led me to realise that there are no such non-special users.</p>
 
 **Vulnerability:** <code> Sensitive Data Exposure </code>
 
-**Target:** <code>http://MACHINE_IP</code>
+**Target:** <code>http://MACHINE_IP</code><br>
 ***Simple Description: A wesbites is given. We need to access the SQLite database and find crucial leaked information***
 
 **Questions:**
@@ -150,7 +150,7 @@ This was really fun to try out. Here goes the description for the same:<br>
 
 **Vulnerability:** <code> XML External Entity </code>
 
-**Target:** <code>http://MACHINE_IP</code>
+**Target:** <code>http://MACHINE_IP</code><br>
 ***Simple Description: An XXE Payload TextField is given, Certain tasks are to be done***
 
 **Questions:**
@@ -234,7 +234,7 @@ Honestly speaking though, I didn't have much confidence to try it out that time,
 
 **Vulnerability:** <code> Broken Access Control </code>
 
-**Target:** <code>http://MACHINE_IP</code>
+**Target:** <code>http://MACHINE_IP</code><br>
 ***Simple Description: A target machine is given, IDOR and Broken Access Control are to be learned and exploited!***
 
 **Questions:**
@@ -284,5 +284,52 @@ Honestly speaking though, I didn't have much confidence to try it out that time,
 #### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
 **Q1:** <code>No answer needed</code>
 **Q2:** <code>thm{4b9513968fd564a87b28aa1f9d672e17}</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 7:
+
+**Vulnerability:** <code> Cross-Site Scripting </code>
+
+**Target:** <code>http://MACHINE_IP</code><br>
+***Simple Description: Try out XSS on*** <code>http://MACHINE_IP/reflected</code> ***and*** <code>http://MACHINE_IP/stored</code> ***, to answer the following questions!***
+
+**Questions:**
+
+![Answers](Answers_Day_7_(Blurred).png)
+
+#### Approach for each Question: (Answers are at the end)
+**Question 1:** <code> Deploy the VM. </code><br>
+**No Answer Required**
+
+**Question 2:** <code> Go to http://MACHINE_IP/reflected and craft a reflected XSS payload that will cause a popup saying "Hello". </code><br>
+**My Solution:**
+<p>Now see, this is something important to note. Ethical Hacking is NOT the use of random tools or scripts to gain access. Then you just exist as a script kiddie. To really get good at it (I'm a beginner😅, by the way), you must learn certain core concepts and perhaps even go deep into them!<br>Take XSS for that matter. It is obvious to think that you might get around by copying some payload scripts. But no. Without some knowledge of JavaScript <i><b>(and more advanced knowledge, if you wish to get good at this)</b></i>, you won't be able to craft new exploits or mould them according to your situation.<br>In short, <i>Learn Everything!</i>🙂.<br>Just like Albert Einstein once said, <b><i>"Education is not the learning of facts, but the training of the mind to think"</i></b>, similarly,<br> <b><i>"Ethical Hacking is not the learning of tools, but the training of the mind figure out methodologies!</i></b><br>So as far as this exploit goes, it was a simple <code>&lt;script&gt;onclick(alert("Hello"));&lt;/script&gt;</code> script which did the magic. After clicking on the search button, first we see <b>"Hello"</b> and then the answer.</p>
+
+**Question 3:** <code> On the same reflective page, craft a reflected XSS payload that will cause a popup with your machines IP address. </code><br>
+**My Solution:**
+<p>This is an example of moulding or re-crafting your own exploit. Take <code>&lt;script&gt;onclick(alert("Hello"));&lt;/script&gt;</code> and instead of <b>"Hello"</b> , use <code>window.location.hostname</code>. To validate my point about learning JavaScript, here is a picture of the hint from TryHackMe.</p>
+<br>
+<img src="Day 7 Hint.png">
+<br>
+**Question 4:** <code> Now navigate to http://MACHINE_IP/stored and make an account. Then add a comment and see if you can insert some of your own HTML. </code><br>
+**My Solution:**
+<p>Okay, so what this page basically has a comment box, where the input data is dangerously unsanitised. Adding a simple <code>&lt;h1&gt;Hi&lt;/h1&gt;</code>, would help you see the answer right on the page!</p>
+
+**Question 5:** <code> On the same page, create an alert popup box appear on the page with your document cookies. </code><br>
+**My Solution:**
+<p>This is similar to Question 3. instead of <code>window.location.hostname</code>, just use <code>document.cookie</code>.</p>
+
+**Question 6:** <code> Change "XSS Playground" to "I am a hacker" by adding a comment and using Javascript. </code><br>
+**My Solution:**
+<p>Finally, the part that seems most exciting! You can change the way the wesbite looks! And that too for all Users!<br>I did have to use a hint for this though. Turns out, that here we use something like <code>&lt;script&gt;document.querySelector('#thm-title').textContent = 'I am a hacker'&lt;/script&gt;</code> to change the title. What's more important is, that we can similarly affect other elements in the page if we known their <code>span id</code>.</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>No answer needed</code>
+**Q2:** <code>ThereIsMoreToXSSThanYouThink</code>
+**Q3:** <code>ReflectiveXss4TheWin</code>
+**Q4:** <code>HTML_T4gs</code>
+**Q5:** <code>W3LL_D0N3_LVL2</code>
+**Q6:** <code>websites_can_be_easily_defaced_with_xss</code>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
