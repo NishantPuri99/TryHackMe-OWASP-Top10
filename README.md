@@ -434,3 +434,24 @@ After getting a reverse shell, a simple <code>cd ..</code> and an <code>ls</code
 **Q1:** <code>4a69a7ff9fd68</code>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 9:
+
+**Vulnerability:** <code> Components with Known Vulnerabilities </code>
+
+**Target:** <code>http://MACHINE_IP</code><br>
+***Simple Description: We learn a very important concept for any ethical hacker out there. Using exploits!***
+
+**Questions:**
+
+![Answers](Answers_Day_9_(Blurred).png)
+
+#### Questions: 
+**Question 1:** <code> How many characters are in /etc/passwd (use wc -c /etc/passwd to get the answer). </code><br>
+**My Solution:**
+<p>Okay. So even though there were 2 sections before this one (related to this Vulnerability), what they primarily focussed on, was taking about the basics of these and as to why does OWASP rate it a a 3 (A high risk). Turns out, that using out dated software and not updating it frequently can lead to an attacker using known exploits to get into and compromise a system. <br>The exploitation turns out to be quite simple as well. <a href="https://www.exploit-db.com/">Exploit-DB</a> has some great exploits, for almost every system out there. <br>Using this, we had to figure out a way to execute remote code on our "bookstore" application <i>that's the hint, by the way</i>😉.<br>TryHackMe, like always, leaves out an important note for budding ethical hackers.<br><b><i>(Note: exploit-db is incredibly useful, and for all you beginners you're gonna be using this a lot so it's best to get comfortable with it)</i></b> </p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>1611</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
