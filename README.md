@@ -455,3 +455,33 @@ After getting a reverse shell, a simple <code>cd ..</code> and an <code>ls</code
 **Q1:** <code>1611</code>
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Day 10:
+
+**Vulnerability:** <code> Insufficient Logging and Monitoring </code>
+
+**Target:** Download <code>login-logs.txt</code> and <br>
+***Simple Description: A login-logs file is given, we need to analyse it and answer the questions.***
+
+**Questions:**
+
+![Answers](Answers_Day_10_(Blurred).png)
+
+#### Approach for each Question: (Answers are at the end)
+**Question 1:** <code> What IP address is the attacker using ? </code><br>
+**My Solution:**
+<p>This is easily visible through the unauthorised attempts that the attacker is making, by repeatedly using some common usernames for admin pages.</p>
+
+**Question 2:** <code> What kind of attack is being carried out ? </code><br>
+**My Solution:**
+<p>Since the user is not trying any type of specific methodology or tool, and is just randomly trying out known credentials. The technique becomes easily obvious</p>
+
+#### Answers: (CAUTION!: If you are also trying this machine, I'd suggest you to maximise your own effort, and then only come and seek the answers. Thanks.)
+**Q1:** <code>49.99.13.16</code>
+**Q2:** <code>Brute Force</code>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## And Finally, after 10 days of amazing learning, I was finally able to successfully complete this room. This has been an altogether amazing experience! I hope this helps someone who is stuck on any level.
+
+# Thank you for reading and create yourself a fantastic day!
